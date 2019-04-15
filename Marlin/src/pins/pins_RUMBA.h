@@ -134,7 +134,11 @@
 //
 #define HEATER_0_PIN        2
 #define HEATER_1_PIN        3
-#define HEATER_2_PIN        6
+#ifndef USE_CONTROLLER_FAN
+  #define HEATER_2_PIN      6
+#else
+  #define HEATER_2_PIN     -1
+#endif
 #define HEATER_3_PIN        8
 #define HEATER_BED_PIN      9
 
@@ -175,6 +179,29 @@
   #define DOGLCD_MOSI      42
   #define DOGLCD_SCK       18
   #define DOGLCD_A0        LCD_PINS_DC
+
+  #elif ENABLED(FYSETC_MINI_12864)
+  #define DOGLCD_CS        42
+  #define DOGLCD_A0        19
+  #define LCD_RESET_PIN    18
+  #define BTN_EN1          11
+  #define BTN_EN2          12
+  #define BTN_ENC          43
+  #define LCD_CONTRAST     255
+
+  #ifndef RGB_LED
+      #define RGB_LED
+      #ifndef RGB_LED_R_PIN
+        #define RGB_LED_R_PIN 38
+      #endif
+      #ifndef RGB_LED_G_PIN
+        #define RGB_LED_G_PIN 41
+      #endif
+      #ifndef RGB_LED_B_PIN
+        #define RGB_LED_B_PIN 40
+      #endif
+  #endif
+
 #else
   #define LCD_PINS_RS      19
   #define LCD_PINS_ENABLE  42

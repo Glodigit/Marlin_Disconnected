@@ -143,6 +143,7 @@
 
   #define DOGLCD
   #define ULTIPANEL
+  #define LCD_CONTRAST_MAX     255
   #define DEFAULT_LCD_CONTRAST 255
   #define LED_COLORS_REDUCE_GREEN
 

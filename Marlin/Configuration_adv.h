@@ -1122,7 +1122,7 @@
 #define LIN_ADVANCE
 #if ENABLED(LIN_ADVANCE)
   //#define EXTRA_LIN_ADVANCE_K // Enable for second linear advance constants
-  #define LIN_ADVANCE_K 0.2    // Unit: mm compression per 1mm/s extruder speed
+  #define LIN_ADVANCE_K 0.0    // Unit: mm compression per 1mm/s extruder speed
   //#define LA_DEBUG            // If enabled, this will generate debug information output over USB.
 #endif
 
@@ -1546,9 +1546,9 @@
   #define INTERPOLATE       true  // Interpolate X/Y/Z_MICROSTEPS to 256
 
   #if AXIS_IS_TMC(X)
-    #define X_CURRENT     600  // (mA) RMS current. Multiply by 1.414 for peak current.
+    #define X_CURRENT     750  // (mA) RMS current. Multiply by 1.414 for peak current.
     #define X_MICROSTEPS   16  // 0..256
-    #define X_RSENSE     0.075
+    #define X_RSENSE     0.11
   #endif
 
   #if AXIS_IS_TMC(X2)
@@ -1558,9 +1558,9 @@
   #endif
 
   #if AXIS_IS_TMC(Y)
-    #define Y_CURRENT     1000
+    #define Y_CURRENT     800
     #define Y_MICROSTEPS   16
-    #define Y_RSENSE     0.075
+    #define Y_RSENSE     0.11
   #endif
 
   #if AXIS_IS_TMC(Y2)
@@ -1570,13 +1570,13 @@
   #endif
 
   #if AXIS_IS_TMC(Z)
-    #define Z_CURRENT     500
+    #define Z_CURRENT     400
     #define Z_MICROSTEPS   16
     #define Z_RSENSE     0.11
   #endif
 
   #if AXIS_IS_TMC(Z2)
-    #define Z2_CURRENT    500
+    #define Z2_CURRENT    400
     #define Z2_MICROSTEPS  16
     #define Z2_RSENSE    0.11
   #endif
@@ -1647,7 +1647,7 @@
    * The default SW SPI pins are defined the respective pins files,
    * but you can override or define them here.
    */
-  #define TMC_USE_SW_SPI
+  //#define TMC_USE_SW_SPI
   //#define TMC_SW_MOSI       -1
   //#define TMC_SW_MISO       -1
   //#define TMC_SW_SCK        -1

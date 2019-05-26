@@ -65,7 +65,7 @@ void LEDLights::setup() {
     if (PWM_PIN(RGB_LED_G_PIN)) SET_PWM(RGB_LED_G_PIN); else SET_OUTPUT(RGB_LED_G_PIN);
     if (PWM_PIN(RGB_LED_B_PIN)) SET_PWM(RGB_LED_B_PIN); else SET_OUTPUT(RGB_LED_B_PIN);
     //FysetC Screen boot colour
-    OUT_WRITE(RGB_LED_G_PIN, HIGH);
+    //OUT_WRITE(RGB_LED_G_PIN, HIGH);
 
     #if ENABLED(RGBW_LED)
       if (PWM_PIN(RGB_LED_W_PIN)) SET_PWM(RGB_LED_W_PIN); else SET_OUTPUT(RGB_LED_W_PIN);
@@ -92,6 +92,9 @@ void LEDLights::set_color(const LEDColor &incol
                             : pixels.Color(incol.r, incol.g, incol.b, incol.w);
     static uint16_t nextLed = 0;
 
+    #ifdef NEOPIXEL_BKGD_LED_INDEX
+      if (NEOPIXEL_BKGD_LED_INDEX == nextLed) { nextLed++; return; }
+    #endif
     pixels.setBrightness(incol.i);
     if (!isSequence)
       set_neopixel_color(neocolor);

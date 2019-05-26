@@ -67,10 +67,12 @@
 #define X_STEP_PIN         17
 #define X_DIR_PIN          16
 #define X_ENABLE_PIN       48
+#define X_CS_PIN           14
 
 #define Y_STEP_PIN         54
 #define Y_DIR_PIN          47
 #define Y_ENABLE_PIN       55
+#define Y_CS_PIN           15
 
 #define Z_STEP_PIN         57
 #define Z_DIR_PIN          56
@@ -179,27 +181,29 @@
   #define DOGLCD_MOSI      42
   #define DOGLCD_SCK       18
   #define DOGLCD_A0        LCD_PINS_DC
-
-  #elif ENABLED(FYSETC_MINI_12864)
+#elif ENABLED(FYSETC_MINI_12864)
   #define DOGLCD_CS        42
   #define DOGLCD_A0        19
-  #define LCD_RESET_PIN    18
-  #define BTN_EN1          11
-  #define BTN_EN2          12
-  #define BTN_ENC          43
-  #define LCD_CONTRAST     255
+  #define DOGLCD_MOSI      51
+  #define DOGLCD_SCK       52
 
-  #ifndef RGB_LED
-      #define RGB_LED
-      #ifndef RGB_LED_R_PIN
-        #define RGB_LED_R_PIN 38
-      #endif
-      #ifndef RGB_LED_G_PIN
-        #define RGB_LED_G_PIN 41
-      #endif
-      #ifndef RGB_LED_B_PIN
-        #define RGB_LED_B_PIN 40
-      #endif
+  //#define FORCE_SOFT_SPI    // Use this if default of hardware SPI causes display problems
+                              //   results in LCD soft SPI mode 3, SD soft SPI mode 0
+
+  #define LCD_RESET_PIN  18   // Must be high or open for LCD to operate normally.
+
+  #if EITHER(FYSETC_MINI_12864_1_2, FYSETC_MINI_12864_2_0)
+    #ifndef RGB_LED_R_PIN
+      #define RGB_LED_R_PIN 38
+    #endif
+    #ifndef RGB_LED_G_PIN
+      #define RGB_LED_G_PIN 41
+    #endif
+    #ifndef RGB_LED_B_PIN
+      #define RGB_LED_B_PIN 40
+    #endif
+  #elif ENABLED(FYSETC_MINI_12864_2_1)
+    #define NEOPIXEL_PIN   25
   #endif
 
 #else

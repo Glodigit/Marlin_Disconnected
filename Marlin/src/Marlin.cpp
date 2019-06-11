@@ -381,7 +381,7 @@ void disable_all_steppers() {
     #endif // HOST_ACTION_COMMANDS
 
     if (run_runout_script)
-      enqueue_and_echo_commands_P(PSTR(FILAMENT_RUNOUT_SCRIPT));
+      enqueue_and_echo_commands_front_P(PSTR(FILAMENT_RUNOUT_SCRIPT));
   }
 
 #endif // HAS_FILAMENT_SENSOR
@@ -873,6 +873,10 @@ void setup() {
 
   setup_killpin();
 
+  #if HAS_DRIVER(TMC2208)
+    tmc2208_serial_begin();
+  #endif
+
   setup_powerhold();
 
   #if HAS_STEPPER_RESET
@@ -903,9 +907,6 @@ void setup() {
       SPI.begin();
     #endif
     tmc_init_cs_pins();
-  #endif
-  #if HAS_DRIVER(TMC2208)
-    tmc2208_serial_begin();
   #endif
 
   #ifdef BOARD_INIT
@@ -1053,16 +1054,12 @@ void setup() {
     fanmux_init();
   #endif
 
-  #if HAS_TRINAMIC && HAS_LCD_MENU
-    init_tmc_section();
-  #endif
-
   #if ENABLED(MIXING_EXTRUDER)
     mixer.init();
   #endif
 
   #if ENABLED(BLTOUCH)
-    bltouch.init();
+    bltouch.init(/*set_voltage=*/true);
   #endif
 
   #if ENABLED(I2C_POSITION_ENCODERS)
@@ -1134,6 +1131,7 @@ void loop() {
   for (;;) {
 
     #if ENABLED(SDSUPPORT)
+
       card.checkautostart();
 
       if (card.flag.abort_sd_printing) {
@@ -1145,7 +1143,9 @@ void loop() {
         clear_command_queue();
         quickstop_stepper();
         print_job_timer.stop();
-        thermalManager.disable_all_heaters();
+        #if DISABLED(SD_ABORT_NO_COOLDOWN)
+          thermalManager.disable_all_heaters();
+        #endif
         thermalManager.zero_fan_speeds();
         wait_for_heatup = false;
         #if ENABLED(POWER_LOSS_RECOVERY)
@@ -1155,6 +1155,7 @@ void loop() {
           enqueue_and_echo_commands_P(PSTR(EVENT_GCODE_SD_STOP));
         #endif
       }
+
     #endif // SDSUPPORT
 
     if (commands_in_queue < BUFSIZE) get_available_commands();

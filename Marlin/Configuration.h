@@ -733,7 +733,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4[, E5]]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 408 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 418.5 }
 #define DEFAULT_MAX_FEEDRATE          { 200, 200, 50, 100 }
 #define DEFAULT_MAX_ACCELERATION      { 3000, 3000, 300, 10000 }
 
@@ -745,9 +745,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          2000    // X, Y, Z and E acceleration for printing moves
+#define DEFAULT_ACCELERATION          1280    // X, Y, Z and E acceleration for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  5000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_TRAVEL_ACCELERATION   1680    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
  * Junction Deviation
@@ -777,7 +777,7 @@
   #define DEFAULT_ZJERK  0.5
 #endif
 
-#define DEFAULT_EJERK    5.0  // May be used by Linear Advance
+#define DEFAULT_EJERK    3.0  // May be used by Linear Advance
 
 /**
  * S-Curve Acceleration

@@ -33,8 +33,8 @@
 #define CHARSIZE 2
 
 #define WELCOME_MSG                         MACHINE_NAME _UxGT(" er klar")
-#define MSG_SD_INSERTED                     _UxGT("Kort isat")
-#define MSG_SD_REMOVED                      _UxGT("Kort fjernet")
+#define MSG_MEDIA_INSERTED                  _UxGT("Kort isat")
+#define MSG_MEDIA_REMOVED                   _UxGT("Kort fjernet")
 #define MSG_LCD_ENDSTOPS                    _UxGT("Endstops") // Max length 8 characters
 #define MSG_MAIN                            _UxGT("Menu")
 #define MSG_AUTOSTART                       _UxGT("Autostart")
@@ -124,12 +124,12 @@
   #define MSG_CSTEPS                        _UxGT("Zsteps/mm")
 #endif
 #define MSG_ESTEPS                          _UxGT("Esteps/mm")
-#define MSG_E1STEPS                         _UxGT("E1steps/mm")
-#define MSG_E2STEPS                         _UxGT("E2steps/mm")
-#define MSG_E3STEPS                         _UxGT("E3steps/mm")
-#define MSG_E4STEPS                         _UxGT("E4steps/mm")
-#define MSG_E5STEPS                         _UxGT("E5steps/mm")
-#define MSG_E6STEPS                         _UxGT("E6steps/mm")
+#define MSG_E0_STEPS                        _UxGT("E1steps/mm")
+#define MSG_E1_STEPS                        _UxGT("E2steps/mm")
+#define MSG_E2_STEPS                        _UxGT("E3steps/mm")
+#define MSG_E3_STEPS                        _UxGT("E4steps/mm")
+#define MSG_E4_STEPS                        _UxGT("E5steps/mm")
+#define MSG_E5_STEPS                        _UxGT("E6steps/mm")
 #define MSG_TEMPERATURE                     _UxGT("Temperatur")
 #define MSG_MOTION                          _UxGT("Bevægelse")
 #define MSG_FILAMENT                        _UxGT("Filament")
@@ -146,8 +146,8 @@
 #define MSG_PAUSE_PRINT                     _UxGT("Pause printet")
 #define MSG_RESUME_PRINT                    _UxGT("Forsæt printet")
 #define MSG_STOP_PRINT                      _UxGT("Stop printet")
-#define MSG_CARD_MENU                       _UxGT("Print fra SD")
-#define MSG_NO_CARD                         _UxGT("Intet SD kort")
+#define MSG_MEDIA_MENU                      _UxGT("Print fra SD")
+#define MSG_NO_MEDIA                        _UxGT("Intet SD kort")
 #define MSG_DWELL                           _UxGT("Dvale...")
 #define MSG_USERWAIT                        _UxGT("Venter på bruger...")
 #define MSG_PRINT_ABORTED                   _UxGT("Print annulleret")
@@ -163,13 +163,12 @@
 #define MSG_CONTROL_RETRACT_RECOVERF        _UxGT("UnRet  V")
 #define MSG_AUTORETRACT                     _UxGT("AutoRetr.")
 #define MSG_FILAMENTCHANGE                  _UxGT("Skift filament")
-#define MSG_INIT_SDCARD                     _UxGT("Init. SD card")
-#define MSG_CHANGE_SDCARD                   _UxGT("Skift SD kort")
+#define MSG_INIT_MEDIA                      _UxGT("Init. SD card")
+#define MSG_CHANGE_MEDIA                    _UxGT("Skift SD kort")
 #define MSG_ZPROBE_OUT                      _UxGT("Probe udenfor plade")
 #define MSG_BLTOUCH_SELFTEST                _UxGT("BLTouch Selv-Test")
 #define MSG_BLTOUCH_RESET                   _UxGT("Reset BLTouch")
-#define MSG_HOME                            _UxGT("Home")  // Used as MSG_HOME " " MSG_X MSG_Y MSG_Z " " MSG_FIRST
-#define MSG_FIRST                           _UxGT("først")
+#define MSG_HOME_FIRST                      _UxGT("Home %s%s%s først")
 #define MSG_ZPROBE_ZOFFSET                  _UxGT("Z Offset")
 #define MSG_BABYSTEP_X                      _UxGT("Babystep X")
 #define MSG_BABYSTEP_Y                      _UxGT("Babystep Y")
@@ -182,7 +181,7 @@
 #define MSG_ERR_MINTEMP                     _UxGT("Fejl: Min temp")
 #define MSG_ERR_MAXTEMP_BED                 _UxGT("Fejl: Maks Plade temp")
 #define MSG_ERR_MINTEMP_BED                 _UxGT("Fejl: Min Plade temp")
-#define MSG_ERR_Z_HOMING                    MSG_HOME _UxGT(" ") MSG_X MSG_Y _UxGT(" ") MSG_FIRST
+#define MSG_ERR_Z_HOMING                    _UxGT("Home XY først")
 #define MSG_HALTED                          _UxGT("PRINTER STOPPET")
 #define MSG_PLEASE_RESET                    _UxGT("Reset Venligst")
 #define MSG_SHORT_DAY                       _UxGT("d") // Kun et bogstav
@@ -228,6 +227,8 @@
 #define MSG_DAC_EEPROM_WRITE                _UxGT("DAC EEPROM Skriv")
 
 #define MSG_FILAMENT_CHANGE_OPTION_RESUME   _UxGT("Forsæt print")
+
+#define MSG_EXPECTED_PRINTER                _UxGT("Forkert printer")
 
 #if LCD_HEIGHT >= 4
   #define MSG_FILAMENT_CHANGE_INIT_1          _UxGT("Vent på start")

@@ -42,8 +42,8 @@
 #define MSG_YES                             _UxGT("ANO")
 #define MSG_NO                              _UxGT("NE")
 #define MSG_BACK                            _UxGT("Zpět")
-#define MSG_SD_INSERTED                     _UxGT("Karta vložena")
-#define MSG_SD_REMOVED                      _UxGT("Karta vyjmuta")
+#define MSG_MEDIA_INSERTED                  _UxGT("Karta vložena")
+#define MSG_MEDIA_REMOVED                   _UxGT("Karta vyjmuta")
 #define MSG_LCD_ENDSTOPS                    _UxGT("Endstopy") // max 8 znaku
 #define MSG_LCD_SOFT_ENDSTOPS               _UxGT("Soft Endstopy")
 #define MSG_MAIN                            _UxGT("Hlavní nabídka")
@@ -116,7 +116,6 @@
 #define MSG_Z_OFFSET                        _UxGT("2. tryska Z")
 
 #define MSG_UBL_DOING_G29                   _UxGT("Provádím G29")
-#define MSG_UBL_UNHOMED                     _UxGT("Přejeďte domů")
 #define MSG_UBL_TOOLS                       _UxGT("UBL nástroje")
 #define MSG_UBL_LEVEL_BED                   _UxGT("Unified Bed Leveling")
 #define MSG_UBL_MANUAL_MESH                 _UxGT("Manuální síť bodů")
@@ -259,12 +258,12 @@
   #define MSG_CSTEPS                        _UxGT("Zkroků/mm")
 #endif
 #define MSG_ESTEPS                          _UxGT("Ekroků/mm")
-#define MSG_E1STEPS                         _UxGT("E1kroků/mm")
-#define MSG_E2STEPS                         _UxGT("E2kroků/mm")
-#define MSG_E3STEPS                         _UxGT("E3kroků/mm")
-#define MSG_E4STEPS                         _UxGT("E4kroků/mm")
-#define MSG_E5STEPS                         _UxGT("E5kroků/mm")
-#define MSG_E6STEPS                         _UxGT("E6kroků/mm")
+#define MSG_E0_STEPS                        _UxGT("E1kroků/mm")
+#define MSG_E1_STEPS                        _UxGT("E2kroků/mm")
+#define MSG_E2_STEPS                        _UxGT("E3kroků/mm")
+#define MSG_E3_STEPS                        _UxGT("E4kroků/mm")
+#define MSG_E4_STEPS                        _UxGT("E5kroků/mm")
+#define MSG_E5_STEPS                        _UxGT("E6kroků/mm")
 #define MSG_TEMPERATURE                     _UxGT("Teplota")
 #define MSG_MOTION                          _UxGT("Pohyb")
 #define MSG_FILAMENT                        _UxGT("Filament")
@@ -278,7 +277,7 @@
 #define MSG_LOAD_EEPROM                     _UxGT("Načíst nastavení")
 #define MSG_RESTORE_FAILSAFE                _UxGT("Obnovit výchozí")
 #define MSG_INIT_EEPROM                     _UxGT("Inic. EEPROM")
-#define MSG_SD_UPDATE                       _UxGT("Aktualizace z SD")
+#define MSG_MEDIA_UPDATE                    _UxGT("Aktualizace z SD")
 #define MSG_RESET_PRINTER                   _UxGT("Reset tiskárny")
 #define MSG_REFRESH                         _UxGT("Obnovit")
 #define MSG_WATCH                           _UxGT("Info obrazovka")
@@ -291,8 +290,8 @@
 #define MSG_RESUME_PRINT                    _UxGT("Obnovit tisk")
 #define MSG_STOP_PRINT                      _UxGT("Zastavit tisk")
 #define MSG_OUTAGE_RECOVERY                 _UxGT("Obnova výpadku")
-#define MSG_CARD_MENU                       _UxGT("Tisknout z SD")
-#define MSG_NO_CARD                         _UxGT("Žádná SD karta")
+#define MSG_MEDIA_MENU                      _UxGT("Tisknout z SD")
+#define MSG_NO_MEDIA                        _UxGT("Žádná SD karta")
 #define MSG_DWELL                           _UxGT("Uspáno...")
 #define MSG_USERWAIT                        _UxGT("Čekání na uživ...")
 #define MSG_PRINT_PAUSED                    _UxGT("Tisk pozastaven")
@@ -321,8 +320,8 @@
 #define MSG_FILAMENTUNLOAD                  _UxGT("Vysunout filament")
 #define MSG_FILAMENTUNLOAD_ALL              _UxGT("Vysunout vše")
 
-#define MSG_INIT_SDCARD                     _UxGT("Načíst SD kartu")
-#define MSG_CHANGE_SDCARD                   _UxGT("Vyměnit SD kartu")
+#define MSG_INIT_MEDIA                      _UxGT("Načíst SD kartu")
+#define MSG_CHANGE_MEDIA                    _UxGT("Vyměnit SD kartu")
 #define MSG_ZPROBE_OUT                      _UxGT("Sonda Z mimo podl")
 #define MSG_SKEW_FACTOR                     _UxGT("Faktor zkosení")
 #define MSG_BLTOUCH                         _UxGT("BLTouch")
@@ -335,8 +334,7 @@
 #define MSG_BLTOUCH_STOW                    _UxGT("BLTouch zasunout")
 #define MSG_MANUAL_DEPLOY                   _UxGT("Vysunout Z-sondu")
 #define MSG_MANUAL_STOW                     _UxGT("Zasunout Z-sondu")
-#define MSG_HOME                            _UxGT("Domů")  // Used as MSG_HOME " " MSG_X MSG_Y MSG_Z " " MSG_FIRST
-#define MSG_FIRST                           _UxGT("první")
+#define MSG_HOME_FIRST                      _UxGT("Domů %s%s%s první")
 #define MSG_ZPROBE_ZOFFSET                  _UxGT("Z ofset")
 #define MSG_BABYSTEP_X                      _UxGT("Babystep X")
 #define MSG_BABYSTEP_Y                      _UxGT("Babystep Y")
@@ -354,7 +352,7 @@
 #define MSG_ERR_MINTEMP_BED                 _UxGT("NÍZ. TEPL. PODL.")
 #define MSG_ERR_MAXTEMP_CHAMBER             _UxGT("Err: MAXTEMP KOMORA")
 #define MSG_ERR_MINTEMP_CHAMBER             _UxGT("Err: MINTEMP KOMORA")
-#define MSG_ERR_Z_HOMING                    MSG_HOME _UxGT(" ") MSG_X MSG_Y _UxGT(" ") MSG_FIRST
+#define MSG_ERR_Z_HOMING                    _UxGT("Domů XY první")
 #define MSG_HALTED                          _UxGT("TISK. ZASTAVENA")
 #define MSG_PLEASE_RESET                    _UxGT("Proveďte reset")
 #define MSG_SHORT_DAY                       _UxGT("d")
@@ -494,6 +492,8 @@
 #define MSG_INVADERS                        _UxGT("Invaders")
 #define MSG_SNAKE                           _UxGT("Sn4k3")
 #define MSG_MAZE                            _UxGT("Bludiště")
+
+#define MSG_EXPECTED_PRINTER                _UxGT("Nesprávná tiskárna")
 
 #if LCD_HEIGHT >= 4
   // Up to 3 lines allowed

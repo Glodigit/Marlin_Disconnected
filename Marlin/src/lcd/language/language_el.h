@@ -33,8 +33,8 @@
 #define CHARSIZE 2
 
 #define WELCOME_MSG                         MACHINE_NAME _UxGT(" έτοιμο.")
-#define MSG_SD_INSERTED                     _UxGT("Εισαγωγή κάρτας")
-#define MSG_SD_REMOVED                      _UxGT("Αφαίρεση κάρτας")
+#define MSG_MEDIA_INSERTED                  _UxGT("Εισαγωγή κάρτας")
+#define MSG_MEDIA_REMOVED                   _UxGT("Αφαίρεση κάρτας")
 #define MSG_LCD_ENDSTOPS                    _UxGT("Endstops") // Max length 8 characters
 #define MSG_MAIN                            _UxGT("Βασική Οθόνη")
 #define MSG_AUTOSTART                       _UxGT("Αυτόματη εκκίνηση")
@@ -123,11 +123,12 @@
   #define MSG_CSTEPS                        _UxGT("Bήματα Z ανά μμ")
 #endif
 #define MSG_ESTEPS                          _UxGT("Bήματα Ε ανά μμ")
-#define MSG_E1STEPS                         _UxGT("Bήματα Ε1 ανά μμ")
-#define MSG_E2STEPS                         _UxGT("Bήματα Ε2 ανά μμ")
-#define MSG_E3STEPS                         _UxGT("Bήματα Ε3 ανά μμ")
-#define MSG_E4STEPS                         _UxGT("Bήματα Ε4 ανά μμ")
-#define MSG_E5STEPS                         _UxGT("Bήματα Ε5 ανά μμ")
+#define MSG_E0_STEPS                        _UxGT("Bήματα Ε1 ανά μμ")
+#define MSG_E1_STEPS                        _UxGT("Bήματα Ε2 ανά μμ")
+#define MSG_E2_STEPS                        _UxGT("Bήματα Ε3 ανά μμ")
+#define MSG_E3_STEPS                        _UxGT("Bήματα Ε4 ανά μμ")
+#define MSG_E4_STEPS                        _UxGT("Bήματα Ε5 ανά μμ")
+#define MSG_E5_STEPS                        _UxGT("Bήματα Ε6 ανά μμ")
 #define MSG_TEMPERATURE                     _UxGT("Θερμοκρασία")
 #define MSG_MOTION                          _UxGT("Κίνηση")
 #define MSG_FILAMENT                        _UxGT("Νήμα")
@@ -144,8 +145,8 @@
 #define MSG_PAUSE_PRINT                     _UxGT("Παύση εκτύπωσης")
 #define MSG_RESUME_PRINT                    _UxGT("Συνέχιση εκτύπωσης")
 #define MSG_STOP_PRINT                      _UxGT("Διακοπή εκτύπωσης")
-#define MSG_CARD_MENU                       _UxGT("Εκτύπωση από SD")
-#define MSG_NO_CARD                         _UxGT("Δεν βρέθηκε SD")
+#define MSG_MEDIA_MENU                      _UxGT("Εκτύπωση από SD")
+#define MSG_NO_MEDIA                        _UxGT("Δεν βρέθηκε SD")
 #define MSG_DWELL                           _UxGT("Αναστολή λειτουργίας")
 #define MSG_USERWAIT                        _UxGT("Αναμονή για χρήστη")
 #define MSG_PRINT_ABORTED                   _UxGT("Διακόπτεται η εκτύπωση") //SHORTEN
@@ -161,8 +162,8 @@
 #define MSG_CONTROL_RETRACT_RECOVERF        _UxGT("UnRet  V")
 #define MSG_AUTORETRACT                     _UxGT("Αυτόματη ανάσυρση")
 #define MSG_FILAMENTCHANGE                  _UxGT("Αλλαγή νήματος")
-#define MSG_INIT_SDCARD                     _UxGT("Προετοιμασία κάρτας SD")  //SHORTEN
-#define MSG_CHANGE_SDCARD                   _UxGT("Αλλαγή κάρτας SD")
+#define MSG_INIT_MEDIA                      _UxGT("Προετοιμασία κάρτας SD")  //SHORTEN
+#define MSG_CHANGE_MEDIA                    _UxGT("Αλλαγή κάρτας SD")
 #define MSG_ZPROBE_OUT                      _UxGT("Διερεύνηση Z εκτός Επ.Εκτύπωσης") //SHORTEN
 #define MSG_YX_UNHOMED                      _UxGT("Επαναφορά Χ/Υ πριν από Ζ") //SHORTEN
 #define MSG_XYZ_UNHOMED                     _UxGT("Επαναφορά ΧΥΖ πρώτα")
@@ -186,3 +187,5 @@
 #define MSG_DELTA_CALIBRATE_Y               _UxGT("Βαθμονόμηση Y")
 #define MSG_DELTA_CALIBRATE_Z               _UxGT("Βαθμονόμηση Z")
 #define MSG_DELTA_CALIBRATE_CENTER          _UxGT("Βαθμονόμηση κέντρου")
+
+#define MSG_EXPECTED_PRINTER                _UxGT("Εσφαλμένος εκτυπωτής")

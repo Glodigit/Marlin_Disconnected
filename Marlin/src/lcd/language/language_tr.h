@@ -1,4 +1,4 @@
-/**
+ /**
  * Marlin 3D Printer Firmware
  * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
@@ -39,8 +39,8 @@
 
 #define WELCOME_MSG                         MACHINE_NAME _UxGT(" hazır.")
 #define MSG_BACK                            _UxGT("Geri")
-#define MSG_SD_INSERTED                     _UxGT("SD K. Yerleştirildi.")
-#define MSG_SD_REMOVED                      _UxGT("SD Kart Çıkarıldı.")
+#define MSG_MEDIA_INSERTED                  _UxGT("SD K. Yerleştirildi.")
+#define MSG_MEDIA_REMOVED                   _UxGT("SD Kart Çıkarıldı.")
 #define MSG_LCD_ENDSTOPS                    _UxGT("Enstops") // Max length 8 characters
 #define MSG_LCD_SOFT_ENDSTOPS               _UxGT("Yazılımsal Endstops")
 #define MSG_MAIN                            _UxGT("Ana")
@@ -101,7 +101,6 @@
 #define MSG_Y_OFFSET                        _UxGT("2. nozul Y")
 #define MSG_Z_OFFSET                        _UxGT("2. nozul Z")
 #define MSG_UBL_DOING_G29                   _UxGT("G29 Çalışıyor")
-#define MSG_UBL_UNHOMED                     _UxGT("Ilk XYZ Sıfırla")
 #define MSG_UBL_TOOLS                       _UxGT("UBL Araçları")
 #define MSG_UBL_LEVEL_BED                   _UxGT("UBL Yatak Hizalama")
 #define MSG_UBL_MANUAL_MESH                 _UxGT("Elle Mesh Oluştur")
@@ -241,12 +240,12 @@
   #define MSG_CSTEPS                        _UxGT("Z adım/mm")
 #endif
 #define MSG_ESTEPS                          _UxGT("E adım/mm")
-#define MSG_E1STEPS                         _UxGT("E1 adım/mm")
-#define MSG_E2STEPS                         _UxGT("E2 adım/mm")
-#define MSG_E3STEPS                         _UxGT("E3 adım/mm")
-#define MSG_E4STEPS                         _UxGT("E4 adım/mm")
-#define MSG_E5STEPS                         _UxGT("E5 adım/mm")
-#define MSG_E6STEPS                         _UxGT("E6 adım/mm")
+#define MSG_E0_STEPS                        _UxGT("E1 adım/mm")
+#define MSG_E1_STEPS                        _UxGT("E2 adım/mm")
+#define MSG_E2_STEPS                        _UxGT("E3 adım/mm")
+#define MSG_E3_STEPS                        _UxGT("E4 adım/mm")
+#define MSG_E4_STEPS                        _UxGT("E5 adım/mm")
+#define MSG_E5_STEPS                        _UxGT("E6 adım/mm")
 #define MSG_TEMPERATURE                     _UxGT("Sıcaklık")
 #define MSG_MOTION                          _UxGT("Hareket")
 #define MSG_FILAMENT                        _UxGT("Filaman")
@@ -260,7 +259,7 @@
 #define MSG_LOAD_EEPROM                     _UxGT("Hafızadan Yükle")
 #define MSG_RESTORE_FAILSAFE                _UxGT("Fabrika Ayarları")
 #define MSG_INIT_EEPROM                     _UxGT("EEPROM'u başlat")
-#define MSG_SD_UPDATE                       _UxGT("SD Güncellemesi")
+#define MSG_MEDIA_UPDATE                    _UxGT("SD Güncellemesi")
 #define MSG_RESET_PRINTER                   _UxGT("Yazıcıyı Resetle")
 #define MSG_REFRESH                         _UxGT("Yenile")
 #define MSG_WATCH                           _UxGT("Bilgi Ekranı")
@@ -270,8 +269,8 @@
 #define MSG_RESUME_PRINT                    _UxGT("Sürdür")
 #define MSG_STOP_PRINT                      _UxGT("Durdur")
 #define MSG_OUTAGE_RECOVERY                 _UxGT("Kesinti Kurtarma")
-#define MSG_CARD_MENU                       _UxGT("SD Karttan Yazdır")
-#define MSG_NO_CARD                         _UxGT("SD Kart Yok!")
+#define MSG_MEDIA_MENU                      _UxGT("SD Karttan Yazdır")
+#define MSG_NO_MEDIA                        _UxGT("SD Kart Yok!")
 #define MSG_DWELL                           _UxGT("Uyku...")
 #define MSG_USERWAIT                        _UxGT("Operatör bekleniyor.")
 #define MSG_PRINT_PAUSED                    _UxGT("Baskı Duraklatıldı")
@@ -298,8 +297,8 @@
 #define MSG_FILAMENTLOAD                    _UxGT("Filaman Yükle")
 #define MSG_FILAMENTUNLOAD                  _UxGT("Filaman Çıkart")
 #define MSG_FILAMENTUNLOAD_ALL              _UxGT("Tümünü Çıkart")
-#define MSG_INIT_SDCARD                     _UxGT("SD Kart Başlatılıyor")
-#define MSG_CHANGE_SDCARD                   _UxGT("SD Kart Değiştir")
+#define MSG_INIT_MEDIA                      _UxGT("SD Kart Başlatılıyor")
+#define MSG_CHANGE_MEDIA                    _UxGT("SD Kart Değiştir")
 #define MSG_ZPROBE_OUT                      _UxGT("Z Prob Açık. Tabla")
 #define MSG_SKEW_FACTOR                     _UxGT("Çarpıklık Faktörü")
 #define MSG_BLTOUCH                         _UxGT("BLTouch")
@@ -309,8 +308,7 @@
 #define MSG_BLTOUCH_STOW                    _UxGT("BLTouch Kapat")
 #define MSG_MANUAL_DEPLOY                   _UxGT("Z-Prob Aç")
 #define MSG_MANUAL_STOW                     _UxGT("Z-Sensör Kapat")
-#define MSG_HOME                            _UxGT("Sıfırla")
-#define MSG_FIRST                           _UxGT("Önce")
+#define MSG_HOME_FIRST                      _UxGT("Sıfırla %s%s%s Önce")
 #define MSG_ZPROBE_ZOFFSET                  _UxGT("Z Offset")
 #define MSG_BABYSTEP_X                      _UxGT("Miniadım X")
 #define MSG_BABYSTEP_Y                      _UxGT("Miniadım Y")
@@ -362,6 +360,9 @@
 #define MSG_INFO_PROTOCOL                   _UxGT("Protokol")
 #define MSG_CASE_LIGHT                      _UxGT("Aydınlatmayı Aç")
 #define MSG_CASE_LIGHT_BRIGHTNESS           _UxGT("Aydınlatma Parlaklğı")
+
+#define MSG_EXPECTED_PRINTER                _UxGT("Yanlış Yazıcı")
+
 #if LCD_WIDTH >= 20
   #define MSG_INFO_PRINT_COUNT              _UxGT("Baskı Sayısı")
   #define MSG_INFO_COMPLETED_PRINTS         _UxGT("Tamamlanan")

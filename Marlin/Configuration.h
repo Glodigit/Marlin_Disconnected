@@ -423,7 +423,7 @@
 #define MAX_REDUNDANT_TEMP_SENSOR_DIFF 10
 
 #define TEMP_RESIDENCY_TIME     10  // (seconds) Time to wait for hotend to "settle" in M109
-#define TEMP_WINDOW              1  // (°C) Temperature proximity for the "temperature reached" timer
+#define TEMP_WINDOW              3  // (°C) Temperature proximity for the "temperature reached" timer
 #define TEMP_HYSTERESIS          3  // (°C) Temperature proximity considered "close enough" to the target
 
 #define TEMP_BED_RESIDENCY_TIME 10  // (seconds) Time to wait for bed to "settle" in M190
@@ -443,7 +443,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 240
+#define HEATER_0_MAXTEMP 270
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -466,7 +466,7 @@
   #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
   //#define PID_DEBUG             // Sends debug data to the serial port.
   //#define PID_OPENLOOP 1        // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
-  //#define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
+  #define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
   //#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
   #define PID_FUNCTIONAL_RANGE 15 // If the temperature difference between the target temperature and the actual temperature
@@ -475,10 +475,9 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // DP2
-  #define DEFAULT_Kp 11.12
-  #define DEFAULT_Ki 0.49
-  #define DEFAULT_Kd 63.64
-
+  #define DEFAULT_Kp 8.83
+  #define DEFAULT_Ki 0.32
+  #define DEFAULT_Kd 61.73
 
 #endif // PIDTEMP
 
@@ -1042,16 +1041,16 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 160
-#define Y_BED_SIZE 160
+#define X_BED_SIZE 153
+#define Y_BED_SIZE 157
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS -8
+#define X_MIN_POS -3
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS X_BED_SIZE
-#define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 205
+#define X_MAX_POS X_BED_SIZE + X_MIN_POS
+#define Y_MAX_POS Y_BED_SIZE + Y_MIN_POS
+#define Z_MAX_POS 205 + Z_MIN_POS
 
 /**
  * Software Endstops
@@ -1200,7 +1199,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 4
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
@@ -1642,7 +1641,7 @@
 // This option overrides the default number of encoder pulses needed to
 // produce one step. Should be increased for high-resolution encoders.
 //
-//#define ENCODER_PULSES_PER_STEP 4
+#define ENCODER_PULSES_PER_STEP 4
 
 //
 // Use this option to override the number of step signals required to

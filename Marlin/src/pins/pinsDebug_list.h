@@ -36,6 +36,15 @@
 #if !PIN_EXISTS(X_MS3)
   #undef X_MS3_PIN
 #endif
+#if !PIN_EXISTS(X2_MS1)
+  #undef X2_MS1_PIN
+#endif
+#if !PIN_EXISTS(X2_MS2)
+  #undef X2_MS2_PIN
+#endif
+#if !PIN_EXISTS(X2_MS3)
+  #undef X2_MS3_PIN
+#endif
 #if !PIN_EXISTS(Y_MS1)
   #undef Y_MS1_PIN
 #endif
@@ -45,6 +54,15 @@
 #if !PIN_EXISTS(Y_MS3)
   #undef Y_MS3_PIN
 #endif
+#if !PIN_EXISTS(Y2_MS1)
+  #undef Y2_MS1_PIN
+#endif
+#if !PIN_EXISTS(Y2_MS2)
+  #undef Y2_MS2_PIN
+#endif
+#if !PIN_EXISTS(Y2_MS3)
+  #undef Y2_MS3_PIN
+#endif
 #if !PIN_EXISTS(Z_MS1)
   #undef Z_MS1_PIN
 #endif
@@ -53,6 +71,33 @@
 #endif
 #if !PIN_EXISTS(Z_MS3)
   #undef Z_MS3_PIN
+#endif
+#if !PIN_EXISTS(Z2_MS1)
+  #undef Z2_MS1_PIN
+#endif
+#if !PIN_EXISTS(Z2_MS2)
+  #undef Z2_MS2_PIN
+#endif
+#if !PIN_EXISTS(Z2_MS3)
+  #undef Z2_MS3_PIN
+#endif
+#if !PIN_EXISTS(Z3_MS1)
+  #undef Z3_MS1_PIN
+#endif
+#if !PIN_EXISTS(Z3_MS2)
+  #undef Z3_MS2_PIN
+#endif
+#if !PIN_EXISTS(Z3_MS3)
+  #undef Z3_MS3_PIN
+#endif
+#if !PIN_EXISTS(Z4_MS1)
+  #undef Z4_MS1_PIN
+#endif
+#if !PIN_EXISTS(Z4_MS2)
+  #undef Z4_MS2_PIN
+#endif
+#if !PIN_EXISTS(Z4_MS3)
+  #undef Z4_MS3_PIN
 #endif
 #if !PIN_EXISTS(E0_MS1)
   #undef E0_MS1_PIN
@@ -1299,6 +1344,27 @@
 #if PIN_EXISTS(Z3_STEP)
   REPORT_NAME_DIGITAL(__LINE__, Z3_STEP_PIN)
 #endif
+#if PIN_EXISTS(Z4_CS)
+  REPORT_NAME_DIGITAL(__LINE__, Z4_CS_PIN)
+#endif
+#if PIN_EXISTS(Z4_DIR)
+  REPORT_NAME_DIGITAL(__LINE__, Z4_DIR_PIN)
+#endif
+#if PIN_EXISTS(Z4_ENABLE)
+  REPORT_NAME_DIGITAL(__LINE__, Z4_ENABLE_PIN)
+#endif
+#if PIN_EXISTS(Z4_MS1)
+  REPORT_NAME_DIGITAL(__LINE__, Z4_MS1_PIN)
+#endif
+#if PIN_EXISTS(Z4_MS2)
+  REPORT_NAME_DIGITAL(__LINE__, Z4_MS2_PIN)
+#endif
+#if PIN_EXISTS(Z4_MS3)
+  REPORT_NAME_DIGITAL(__LINE__, Z4_MS3_PIN)
+#endif
+#if PIN_EXISTS(Z4_STEP)
+  REPORT_NAME_DIGITAL(__LINE__, Z4_STEP_PIN)
+#endif
 #if PIN_EXISTS(ZRIB_V20_D6)
   REPORT_NAME_DIGITAL(__LINE__, ZRIB_V20_D6_PIN)
 #endif
@@ -1346,6 +1412,12 @@
 #endif
 #if PIN_EXISTS(Z3_SERIAL_RX)
   REPORT_NAME_DIGITAL(__LINE__, Z3_SERIAL_RX_PIN)
+#endif
+#if PIN_EXISTS(Z4_SERIAL_TX)
+  REPORT_NAME_DIGITAL(__LINE__, Z4_SERIAL_TX_PIN)
+#endif
+#if PIN_EXISTS(Z4_SERIAL_RX)
+  REPORT_NAME_DIGITAL(__LINE__, Z4_SERIAL_RX_PIN)
 #endif
 #if PIN_EXISTS(E0_SERIAL_TX)
   REPORT_NAME_DIGITAL(__LINE__, E0_SERIAL_TX_PIN)

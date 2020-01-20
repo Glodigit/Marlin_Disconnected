@@ -195,6 +195,8 @@
 #define MSG_Z2_MAX                          "z2_max"
 #define MSG_Z3_MIN                          "z3_min"
 #define MSG_Z3_MAX                          "z3_max"
+#define MSG_Z4_MIN                          "z4_min"
+#define MSG_Z4_MAX                          "z4_max"
 #define MSG_Z_PROBE                         "z_probe"
 #define MSG_FILAMENT_RUNOUT_SENSOR          "filament"
 #define MSG_PROBE_OFFSET                    "Probe Offset"
@@ -252,15 +254,15 @@
 #define MSG_FILAMENT_CHANGE_INSERT_M108     "Insert filament and send M108"
 #define MSG_FILAMENT_CHANGE_WAIT_M108       "Send M108 to resume"
 
-#define MSG_STOP_BLTOUCH                    "STOP called because of BLTouch error - restart with M999"
-#define MSG_STOP_UNHOMED                    "STOP called because of unhomed error - restart with M999"
-#define MSG_KILL_INACTIVE_TIME              "KILL caused by too much inactive time - current command: "
-#define MSG_KILL_BUTTON                     "KILL caused by KILL button/pin"
+#define MSG_STOP_BLTOUCH                    "!! STOP called because of BLTouch error - restart with M999"
+#define MSG_STOP_UNHOMED                    "!! STOP called because of unhomed error - restart with M999"
+#define MSG_KILL_INACTIVE_TIME              "!! KILL caused by too much inactive time - current command: "
+#define MSG_KILL_BUTTON                     "!! KILL caused by KILL button/pin"
 
 // temperature.cpp strings
-#define MSG_PID_AUTOTUNE                    "PID Autotune"
-#define MSG_PID_AUTOTUNE_START              MSG_PID_AUTOTUNE " start"
-#define MSG_PID_AUTOTUNE_FAILED             MSG_PID_AUTOTUNE " failed!"
+#define MSG_PID_AUTOTUNE_PREFIX             "PID Autotune"
+#define MSG_PID_AUTOTUNE_START              MSG_PID_AUTOTUNE_PREFIX " start"
+#define MSG_PID_AUTOTUNE_FAILED             MSG_PID_AUTOTUNE_PREFIX " failed!"
 #define MSG_PID_BAD_EXTRUDER_NUM            MSG_PID_AUTOTUNE_FAILED " Bad extruder number"
 #define MSG_PID_TEMP_TOO_HIGH               MSG_PID_AUTOTUNE_FAILED " Temperature too high"
 #define MSG_PID_TIMEOUT                     MSG_PID_AUTOTUNE_FAILED " timeout"
@@ -275,7 +277,7 @@
 #define MSG_KI                              " Ki: "
 #define MSG_KD                              " Kd: "
 #define MSG_AT                              " @:"
-#define MSG_PID_AUTOTUNE_FINISHED           MSG_PID_AUTOTUNE " finished! Put the last Kp, Ki and Kd constants from below into Configuration.h"
+#define MSG_PID_AUTOTUNE_FINISHED           MSG_PID_AUTOTUNE_PREFIX " finished! Put the last Kp, Ki and Kd constants from below into Configuration.h"
 #define MSG_PID_DEBUG                       " PID_DEBUG "
 #define MSG_PID_DEBUG_INPUT                 ": Input "
 #define MSG_PID_DEBUG_OUTPUT                " Output "
@@ -333,6 +335,7 @@
 #define MSG_Y2 "Y2"
 #define MSG_Z2 "Z2"
 #define MSG_Z3 "Z3"
+#define MSG_Z4 "Z4"
 
 #define LCD_STR_A MSG_A
 #define LCD_STR_B MSG_B
@@ -349,6 +352,7 @@
  *
  */
 #if ENABLED(NUMBER_TOOLS_FROM_0)
+  #define LCD_FIRST_TOOL '0'
   #define LCD_STR_N0 "0"
   #define LCD_STR_N1 "1"
   #define LCD_STR_N2 "2"
@@ -356,6 +360,7 @@
   #define LCD_STR_N4 "4"
   #define LCD_STR_N5 "5"
 #else
+  #define LCD_FIRST_TOOL '1'
   #define LCD_STR_N0 "1"
   #define LCD_STR_N1 "2"
   #define LCD_STR_N2 "3"

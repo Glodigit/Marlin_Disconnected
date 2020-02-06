@@ -1566,9 +1566,6 @@ void MarlinUI::update() {
 
   #endif
 
-<<<<<<< HEAD
-#endif // HAS_DISPLAY
-=======
 #else // !HAS_DISPLAY
 
   //
@@ -1600,4 +1597,3 @@ void MarlinUI::update() {
   }
 
 #endif // !HAS_DISPLAY
->>>>>>> 97b5a5f4699d3fdb4665d8052a9356fcc1987f68

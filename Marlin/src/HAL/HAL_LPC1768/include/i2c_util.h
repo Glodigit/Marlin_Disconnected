@@ -1,6 +1,6 @@
 /**
  * Marlin 3D Printer Firmware
- * Copyright (c) 2019 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
+ * Copyright (c) 2020 MarlinFirmware [https://github.com/MarlinFirmware/Marlin]
  *
  * Based on Sprinter and grbl.
  * Copyright (c) 2011 Camiel Gubbels / Erik van der Zalm
@@ -25,15 +25,17 @@
  * HAL_LPC1768/include/i2c_util.h
  */
 
-#ifndef USEDI2CDEV_M
-  #define USEDI2CDEV_M  1  // By default use I2C1 controller
+#include "../../../inc/MarlinConfigPre.h"
+
+#ifndef I2C_MASTER_ID
+  #define I2C_MASTER_ID 1
 #endif
 
-#if USEDI2CDEV_M == 0
+#if I2C_MASTER_ID == 0
   #define I2CDEV_M LPC_I2C0
-#elif USEDI2CDEV_M == 1
+#elif I2C_MASTER_ID == 1
   #define I2CDEV_M LPC_I2C1
-#elif USEDI2CDEV_M == 2
+#elif I2C_MASTER_ID == 2
   #define I2CDEV_M LPC_I2C2
 #else
   #error "Master I2C device not defined!"
@@ -43,4 +45,12 @@
 #include <lpc17xx_pinsel.h>
 #include <lpc17xx_libcfg_default.h>
 
+#ifdef __cplusplus
+  extern "C" {
+#endif
+
 void configure_i2c(const uint8_t clock_option);
+
+#ifdef __cplusplus
+  }
+#endif

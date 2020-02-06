@@ -195,11 +195,12 @@ extern "C" {
   #define PIN_SERIAL2_RX        PD6
   #define PIN_SERIAL2_TX        PD5
 #else
-  #error'Invaqlid setting for SERIAL_UART_INSTANCE'
+  #error'Invalid setting for SERIAL_UART_INSTANCE'
 #endif
 
 // Timer Definitions
 #define TIMER_SERVO             TIM4  // TIMER_SERVO must be defined in this file
+#define TIMER_TONE              TIM5  // TIMER_TONE must be defined in this file
 
 /* SD detect signal */
 /*

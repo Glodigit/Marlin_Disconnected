@@ -485,7 +485,7 @@
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   //DP2
-  
+
   #define DEFAULT_Kp 13.88
   #define DEFAULT_Ki 0.61
   #define DEFAULT_Kd 78.08
@@ -1317,7 +1317,7 @@
 #endif
 
 // Add a menu item to move between bed corners for manual bed adjustment
-//#define LEVEL_BED_CORNERS
+#define LEVEL_BED_CORNERS
 
 #if ENABLED(LEVEL_BED_CORNERS)
   #define LEVEL_CORNERS_INSET_LFRB { 30, 30, 30, 30 } // (mm) Left, Front, Right, Back insets

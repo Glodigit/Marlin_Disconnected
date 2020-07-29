@@ -71,7 +71,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "DkOuvE" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "Glodigit" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -564,6 +564,9 @@
   // CR600S [750W 220V]
 
   // Flash [220V]
+  //#define DEFAULT_bedKp 138.56
+  //#define DEFAULT_bedKi 24.51
+  //#define DEFAULT_bedKd 195.8
 
   // Linear Plus [12V]
 
@@ -817,7 +820,7 @@
 #if ENABLED(CLASSIC_JERK)
   #define DEFAULT_XJERK 10.0
   #define DEFAULT_YJERK 10.0
-  #define DEFAULT_ZJERK    1
+  #define DEFAULT_ZJERK  3.0
 
   //#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
 

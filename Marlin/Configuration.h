@@ -564,9 +564,9 @@
   // CR600S [750W 220V]
 
   // Flash [220V]
-  //#define DEFAULT_bedKp 138.56
-  //#define DEFAULT_bedKi 24.51
-  //#define DEFAULT_bedKd 195.8
+  #define DEFAULT_bedKp 138.56
+  #define DEFAULT_bedKi 24.51
+  #define DEFAULT_bedKd 195.8
 
   // Linear Plus [12V]
 
@@ -662,10 +662,10 @@
   //#define ENDSTOPPULLUP_XMAX
   //#define ENDSTOPPULLUP_YMAX
   //#define ENDSTOPPULLUP_ZMAX
-  #define ENDSTOPPULLUP_XMIN
-  #define ENDSTOPPULLUP_YMIN
-  #define ENDSTOPPULLUP_ZMIN
-  #define ENDSTOPPULLUP_ZMIN_PROBE
+  //#define ENDSTOPPULLUP_XMIN
+  //#define ENDSTOPPULLUP_YMIN
+  //#define ENDSTOPPULLUP_ZMIN
+  //#define ENDSTOPPULLUP_ZMIN_PROBE
 #endif
 
 // Enable pulldown for all endstops to prevent a floating state

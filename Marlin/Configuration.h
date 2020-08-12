@@ -513,6 +513,9 @@
   //#define DEFAULT_Kd 86.11
 
   // DP2 [V6]
+  //#define DEFAULT_Kp 13.88
+  //#define DEFAULT_Ki 0.61
+  //#define DEFAULT_Kd 78.08
 
   // Tevo Flash [Volcano]
   //#define DEFAULT_Kp 12.56
@@ -576,7 +579,9 @@
   //#define DEFAULT_bedKd 482.59
 
   // DP2 [180W 220V]
-
+  //#define DEFAULT_bedKp 58.24
+  //#define DEFAULT_bedKi 6.61
+  //#define DEFAULT_bedKd 128.26
 
 
 #endif // PIDTEMPBED

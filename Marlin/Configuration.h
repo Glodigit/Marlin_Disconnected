@@ -71,7 +71,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "Glodigit" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "@Glodigit" // Who made the changes.
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -508,6 +508,9 @@
   // CR600S [NF-Crazy Copper Volcano]
 
   // Linear Plus [V6]
+  //#define DEFAULT_Kp 49.05
+  //#define DEFAULT_Ki 6.99
+  //#define DEFAULT_Kd 86.11
 
   // DP2 [V6]
 
@@ -568,6 +571,9 @@
   //#define DEFAULT_bedKd 195.8
 
   // Linear Plus [12V]
+  //#define DEFAULT_bedKp 374.03
+  //#define DEFAULT_bedKi 72.47
+  //#define DEFAULT_bedKd 482.59
 
   // DP2 [180W 220V]
 

@@ -449,11 +449,7 @@
 //#define TEMP_SENSOR_1_AS_REDUNDANT
 #define MAX_REDUNDANT_TEMP_SENSOR_DIFF 10
 
-<<<<<<< HEAD
-#define TEMP_RESIDENCY_TIME     10  // (seconds) Time to wait for hotend to "settle" in M109
-=======
 #define TEMP_RESIDENCY_TIME      3  // (seconds) Time to wait for hotend to "settle" in M109
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 #define TEMP_WINDOW              3  // (°C) Temperature proximity for the "temperature reached" timer
 #define TEMP_HYSTERESIS          3  // (°C) Temperature proximity considered "close enough" to the target
 
@@ -476,17 +472,6 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-<<<<<<< HEAD
-#define HEATER_0_MAXTEMP 260
-#define HEATER_1_MAXTEMP 275
-#define HEATER_2_MAXTEMP 275
-#define HEATER_3_MAXTEMP 275
-#define HEATER_4_MAXTEMP 275
-#define HEATER_5_MAXTEMP 275
-#define HEATER_6_MAXTEMP 275
-#define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      110
-=======
 #define HEATER_0_MAXTEMP 278
 #define HEATER_1_MAXTEMP 278
 #define HEATER_2_MAXTEMP 278
@@ -496,7 +481,6 @@
 #define HEATER_6_MAXTEMP 278
 #define HEATER_7_MAXTEMP 278
 #define BED_MAXTEMP      115
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 
 //===========================================================================
 //============================= PID Settings ================================
@@ -512,32 +496,11 @@
 #if ENABLED(PIDTEMP)
   #define PID_EDIT_MENU         // Add PID editing to the "Advanced Settings" menu. (~700 bytes of PROGMEM)
   #define PID_AUTOTUNE_MENU     // Add PID auto-tuning to the "Advanced Settings" menu. (~250 bytes of PROGMEM)
-<<<<<<< HEAD
   //#define PID_DEBUG             // Sends debug data to the serial port. Use 'M303 D' to toggle activation.
   //#define PID_OPENLOOP 1        // Puts PID in open loop. M104/M140 sets the output power from 0 to PID_MAX
   //#define SLOW_PWM_HEATERS      // PWM with very low frequency (roughly 0.125Hz=8s) and minimum state time of approximately 1s useful for heaters driven by a relay
   //#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
                                   // Set/get with gcode: M301 E[extruder number, 0-2]
-  #define PID_FUNCTIONAL_RANGE 15 // If the temperature difference between the target temperature and the actual temperature
-                                  // is more than PID_FUNCTIONAL_RANGE then the PID will be shut off and the heater will be set to min/max.
-
-  // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
-
-  //DP2
-
-  #define DEFAULT_Kp 13.88
-  #define DEFAULT_Ki 0.61
-  #define DEFAULT_Kd 78.08
-
-  // DP2
-  //#define DEFAULT_Kp 8.83
-  //#define DEFAULT_Ki 0.32
-  //#define DEFAULT_Kd 61.73
-=======
-  //#define PID_PARAMS_PER_HOTEND // Uses separate PID parameters for each extruder (useful for mismatched extruders)
-                                  // Set/get with gcode: M301 E[extruder number, 0-2]
-
-  // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
   // Defaults [Ultimaker]
   //#define DEFAULT_Kp 22.2
@@ -552,6 +515,9 @@
   //#define DEFAULT_Kd 86.11
 
   // DP2 [V6]
+  #define DEFAULT_Kp 13.88
+  #define DEFAULT_Ki 0.61
+  #define DEFAULT_Kd 78.08
 
   // Tevo Flash [Volcano]
   //#define DEFAULT_Kp 12.56
@@ -559,7 +525,6 @@
   //#define DEFAULT_Kd 43.4
 
   // SecSavr Skyrise [Volcano]
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 
 #endif // PIDTEMP
 
@@ -596,13 +561,6 @@
   //#define MIN_BED_POWER 0
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
-<<<<<<< HEAD
-  //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
-  //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 58.24
-  #define DEFAULT_bedKi 6.61
-  #define DEFAULT_bedKd 128.26
-=======
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 
   //Default
@@ -623,8 +581,9 @@
   //#define DEFAULT_bedKd 482.59
 
   // DP2 [180W 220V]
-
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
+  #define DEFAULT_bedKp 58.24
+  #define DEFAULT_bedKi 6.61
+  #define DEFAULT_bedKd 128.26
 
 
 #endif // PIDTEMPBED
@@ -822,22 +781,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-<<<<<<< HEAD
 #define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 95 }
-=======
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 418 }
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-<<<<<<< HEAD
 #define DEFAULT_MAX_FEEDRATE          { 300, 300, 20, 100 }
-=======
-#define DEFAULT_MAX_FEEDRATE          { 480, 480, 50, 60 }
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 
 //#define LIMITED_MAX_FR_EDITING        // Limit edit via M203 or LCD to DEFAULT_MAX_FEEDRATE * 2
 #if ENABLED(LIMITED_MAX_FR_EDITING)
@@ -850,11 +801,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-<<<<<<< HEAD
 #define DEFAULT_MAX_ACCELERATION      { 5000, 1750, 100, 10000 }
-=======
-#define DEFAULT_MAX_ACCELERATION      { 4800, 4800, 600, 9600 }
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 
 //#define LIMITED_MAX_ACCEL_EDITING     // Limit edit via M201 or LCD to DEFAULT_MAX_ACCELERATION * 2
 #if ENABLED(LIMITED_MAX_ACCEL_EDITING)
@@ -870,11 +817,7 @@
  *   M204 T    Travel Acceleration
  */
 #define DEFAULT_ACCELERATION          2000    // X, Y, Z and E acceleration for printing moves
-<<<<<<< HEAD
-#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-=======
 #define DEFAULT_RETRACT_ACCELERATION  2000    // E acceleration for retracts
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 #define DEFAULT_TRAVEL_ACCELERATION   2000    // X, Y, Z acceleration for travel (non printing) moves
 
 /**
@@ -899,11 +842,7 @@
   #endif
 #endif
 
-<<<<<<< HEAD
-#define DEFAULT_EJERK   15.0  // May be used by Linear Advance
-=======
 #define DEFAULT_EJERK    15.0  // May be used by Linear Advance
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 
 /**
  * Junction Deviation Factor
@@ -913,13 +852,9 @@
  *   https://blog.kyneticcnc.com/2018/10/computing-junction-deviation-for-marlin.html
  */
 #if DISABLED(CLASSIC_JERK)
-<<<<<<< HEAD
-  #define JUNCTION_DEVIATION_MM 0.075 // (mm) Distance from real junction edge
-=======
   #define JUNCTION_DEVIATION_MM 0.013 // (mm) Distance from real junction edge
   #define JD_HANDLE_SMALL_SEGMENTS    // Use curvature estimation instead of just the junction angle
                                       // for small segments (< 1mm) with large junction angles (> 135°).
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 #endif
 
 /**
@@ -1134,25 +1069,15 @@
  *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
 #define Z_CLEARANCE_DEPLOY_PROBE    5 // Z Clearance for Deploy/Stow
-<<<<<<< HEAD
 #define Z_CLEARANCE_BETWEEN_PROBES  3 // Z Clearance between probe points
 #define Z_CLEARANCE_MULTI_PROBE     3 // Z Clearance between multiple probes
-=======
-#define Z_CLEARANCE_BETWEEN_PROBES  5 // Z Clearance between probe points
-#define Z_CLEARANCE_MULTI_PROBE     5 // Z Clearance between multiple probes
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 //#define Z_AFTER_PROBING           5 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -2 // Farthest distance below the trigger-point to go before stopping
 
 // For M851 give a range for adjusting the Z probe offset
-<<<<<<< HEAD
-#define Z_PROBE_OFFSET_RANGE_MIN -5
-#define Z_PROBE_OFFSET_RANGE_MAX 5
-=======
 #define Z_PROBE_OFFSET_RANGE_MIN -1
 #define Z_PROBE_OFFSET_RANGE_MAX 1
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 
 // Enable the M48 repeatability test to test probe accuracy
 //#define Z_MIN_PROBE_REPEATABILITY_TEST
@@ -1299,7 +1224,7 @@
   // After a runout is detected, continue printing this length of filament
   // before executing the runout script. Useful for a sensor at the end of
   // a feed tube. Requires 4 bytes SRAM per sensor, plus 4 bytes overhead.
-  #define FILAMENT_RUNOUT_DISTANCE_MM 14
+  #define FILAMENT_RUNOUT_DISTANCE_MM 6
 
   #ifdef FILAMENT_RUNOUT_DISTANCE_MM
     // Enable this option to use an encoder disc that toggles the runout pin
@@ -1503,13 +1428,8 @@
 #define Z_SAFE_HOMING
 
 #if ENABLED(Z_SAFE_HOMING)
-<<<<<<< HEAD
   //#define Z_SAFE_HOMING_X_POINT 10    // X point for Z homing when homing all axes (G28).
   //#define Z_SAFE_HOMING_Y_POINT 10    // Y point for Z homing when homing all axes (G28).
-=======
-  #define Z_SAFE_HOMING_X_POINT X_CENTER  // X point for Z homing
-  #define Z_SAFE_HOMING_Y_POINT Y_CENTER  // Y point for Z homing
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 #endif
 
 // Homing speeds (mm/m)
@@ -1623,15 +1543,6 @@
 
 // Preheat Constants
 #define PREHEAT_1_LABEL       "PLA"
-<<<<<<< HEAD
-#define PREHEAT_1_TEMP_HOTEND 180
-#define PREHEAT_1_TEMP_BED     50
-#define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
-
-#define PREHEAT_2_LABEL       "PETG"
-#define PREHEAT_2_TEMP_HOTEND 225
-#define PREHEAT_2_TEMP_BED    70
-=======
 #define PREHEAT_1_TEMP_HOTEND 196
 #define PREHEAT_1_TEMP_BED     48
 #define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255
@@ -1639,7 +1550,6 @@
 #define PREHEAT_2_LABEL       "PETG"
 #define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED     70
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 #define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255
 
 /**
@@ -1765,8 +1675,6 @@
  * View the current statistics with M78.
  */
 #define PRINTCOUNTER
-<<<<<<< HEAD
-=======
 
 /**
  * Password
@@ -1798,7 +1706,6 @@
   //#define PASSWORD_AFTER_SD_PRINT_ABORT
   //#include "Configuration_Secure.h"       // External file with PASSWORD_DEFAULT_VALUE
 #endif
->>>>>>> 33be5fd6db5393d3d4dcc33b2886875a13607df7
 
 //=============================================================================
 //============================= LCD and SD support ============================

@@ -34,9 +34,7 @@
  * Other pins_MYBOARD.h files may override these defaults
  */
 
-#if NOT_TARGET(__AVR_ATmega1280__, __AVR_ATmega2560__)
-  #error "Oops! Select 'Arduino/Genuino Mega or Mega 2560' in 'Tools > Board.'"
-#endif
+#include "env_validate.h"
 
 // Custom flags and defines for the build
 //#define BOARD_CUSTOM_BUILD_FLAGS -D__FOO__
@@ -235,14 +233,16 @@
 //
 // Průša i3 MK2 Multiplexer Support
 //
-#ifndef E_MUX0_PIN
-  #define E_MUX0_PIN                          29  // E2_STEP_PIN
-#endif
-#ifndef E_MUX1_PIN
-  #define E_MUX1_PIN                          28  // E2_DIR_PIN
-#endif
-#ifndef E_MUX2_PIN
-  #define E_MUX2_PIN                          39  // E2_ENABLE_PIN
+#if HAS_PRUSA_MMU1
+  #ifndef E_MUX0_PIN
+    #define E_MUX0_PIN                        29  // E2_STEP_PIN
+  #endif
+  #ifndef E_MUX1_PIN
+    #define E_MUX1_PIN                        28  // E2_DIR_PIN
+  #endif
+  #ifndef E_MUX2_PIN
+    #define E_MUX2_PIN                        39  // E2_ENABLE_PIN
+  #endif
 #endif
 
 //////////////////////////
@@ -263,7 +263,7 @@
   #ifndef SD_DETECT_PIN
     #define SD_DETECT_PIN                     38
   #endif
-  
+
   #if ENABLED(REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
     #define BTN_ENC_EN               LCD_PINS_D7  // Detect the presence of the encoder
   #endif

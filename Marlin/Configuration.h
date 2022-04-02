@@ -644,9 +644,9 @@
   #else
     // Testbox
     // -- CHC Pro + 15mm Melt Extender
-    #define DEFAULT_Kp 12.56
-    #define DEFAULT_Ki 0.91
-    #define DEFAULT_Kd 43.4
+    //#define DEFAULT_Kp 12.56
+    //#define DEFAULT_Ki 0.91
+    //#define DEFAULT_Kd 43.4
     
     // Linear Plus [V6]
     //#define DEFAULT_Kp 49.05
@@ -654,9 +654,9 @@
     //#define DEFAULT_Kd 86.11
 
     // DP2 [V6]
-    //#define DEFAULT_Kp 13.88
-    //#define DEFAULT_Ki 0.61
-    //#define DEFAULT_Kd 78.08
+    //#define DEFAULT_Kp 12.7
+    //#define DEFAULT_Ki 0.53
+    //#define DEFAULT_Kd 76.0
 
     // Tevo Flash [Volcano]
     //#define DEFAULT_Kp 12.56

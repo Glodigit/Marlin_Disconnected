@@ -1134,7 +1134,7 @@
   #endif
 #endif
 
-#define DEFAULT_EJERK    15.0  // May be used by Linear Advance
+#define DEFAULT_EJERK    30.0  // May be used by Linear Advance
 
 /**
  * Junction Deviation Factor

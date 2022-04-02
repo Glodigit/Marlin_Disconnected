@@ -657,9 +657,9 @@
     //#define DEFAULT_Kd 86.11
 
     // DP2 [V6]
-    //#define DEFAULT_Kp 12.7
-    //#define DEFAULT_Ki 0.53
-    //#define DEFAULT_Kd 76.0
+    #define DEFAULT_Kp 12.7
+    #define DEFAULT_Ki 0.53
+    #define DEFAULT_Kd 76.0
 
     // Tevo Flash [Volcano]
     //#define DEFAULT_Kp 12.56

@@ -642,8 +642,12 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    // CR600S [NF-Crazy Copper Volcano]
-
+    // Testbox
+    // -- CHC Pro + 15mm Melt Extender
+    #define DEFAULT_Kp 12.56
+    #define DEFAULT_Ki 0.91
+    #define DEFAULT_Kd 43.4
+    
     // Linear Plus [V6]
     //#define DEFAULT_Kp 49.05
     //#define DEFAULT_Ki 6.99
@@ -659,7 +663,6 @@
     //#define DEFAULT_Ki 0.91
     //#define DEFAULT_Kd 43.4
 
-    // SecSavr Skyrise [Volcano]
   #endif
 #endif
 

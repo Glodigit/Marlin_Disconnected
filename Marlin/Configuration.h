@@ -644,9 +644,9 @@
   #else
     // Testbox
     // -- CHC Pro + 15mm Melt Extender
-    //#define DEFAULT_Kp 12.56
-    //#define DEFAULT_Ki 0.91
-    //#define DEFAULT_Kd 43.4
+    //#define DEFAULT_Kp 16.9
+    //#define DEFAULT_Ki 2.34
+    //#define DEFAULT_Kd 30.3
     
     // Linear Plus [V6]
     //#define DEFAULT_Kp 49.05

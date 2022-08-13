@@ -1647,10 +1647,10 @@
 #define PROBING_MARGIN 45
 
 // X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_FEEDRATE (133*60)
+#define XY_PROBE_FEEDRATE (120*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
-#define Z_PROBE_FEEDRATE_FAST (4*60)
+#define Z_PROBE_FEEDRATE_FAST (120*60)
 
 // Feedrate (mm/min) for the "accurate" probe of each point
 #define Z_PROBE_FEEDRATE_SLOW (Z_PROBE_FEEDRATE_FAST / 2)
@@ -1717,9 +1717,9 @@
  * Example: `M851 Z-5` with a CLEARANCE of 4  =>  9mm from bed to nozzle.
  *     But: `M851 Z+1` with a CLEARANCE of 2  =>  2mm from bed to nozzle.
  */
-#define Z_CLEARANCE_DEPLOY_PROBE   2 // Z Clearance for Deploy/Stow
-#define Z_CLEARANCE_BETWEEN_PROBES 10 // Z Clearance between probe points
-#define Z_CLEARANCE_MULTI_PROBE    2 // Z Clearance between multiple probes
+#define Z_CLEARANCE_DEPLOY_PROBE   4 // Z Clearance for Deploy/Stow
+#define Z_CLEARANCE_BETWEEN_PROBES 24 // Z Clearance between probe points
+#define Z_CLEARANCE_MULTI_PROBE    4 // Z Clearance between multiple probes
 #define Z_AFTER_PROBING            30 // Z position after probing is done
 
 #define Z_PROBE_LOW_POINT          -10 // Farthest distance below the trigger-point to go before stopping
@@ -1751,7 +1751,7 @@
 #define PROBING_FANS_OFF          // Turn fans off when probing
 //#define PROBING_ESTEPPERS_OFF     // Turn all extruder steppers off when probing
 //#define PROBING_STEPPERS_OFF      // Turn all steppers off (unless needed to hold position) when probing (including extruders)
-#define DELAY_BEFORE_PROBING 70  // (ms) To prevent vibrations from triggering piezo sensors
+#define DELAY_BEFORE_PROBING 100  // (ms) To prevent vibrations from triggering piezo sensors
 
 // Require minimum nozzle and/or bed temperature for probing
 //#define PREHEAT_BEFORE_PROBING
@@ -2667,7 +2667,7 @@
 //
 // Add individual axis homing items (Home X, Home Y, and Home Z) to the LCD menu.
 //
-#define INDIVIDUAL_AXIS_HOMING_MENU
+//#define INDIVIDUAL_AXIS_HOMING_MENU
 //#define INDIVIDUAL_AXIS_HOMING_SUBMENU
 
 //
@@ -3398,9 +3398,9 @@
 
 #if EITHER(RGB_LED, RGBW_LED)
   // AIO pins
-  #define RGB_LED_R_PIN PB0
-  #define RGB_LED_G_PIN PB6
-  #define RGB_LED_B_PIN PB7
+  //#define RGB_LED_R_PIN PB0
+  //#define RGB_LED_G_PIN PB6
+  //#define RGB_LED_B_PIN PB7
   //#define RGB_LED_W_PIN -1
 #endif
 

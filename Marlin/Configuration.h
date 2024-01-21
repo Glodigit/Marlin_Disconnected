@@ -838,9 +838,11 @@
   #if ENABLED(PID_PARAMS_PER_HOTEND)
     // Specify up to one value per hotend here, according to your setup.
     // If there are fewer values, the last one applies to the remaining hotends.
-    #define DEFAULT_Kp_LIST {  22.20,  22.20 }
-    #define DEFAULT_Ki_LIST {   1.08,   1.08 }
-    #define DEFAULT_Kd_LIST { 114.00, 114.00 }
+
+    // CR600S [Coaxial Heatblock Edition1][CHC Pro]
+    #define DEFAULT_Kp_LIST {  89.1,  11.2 }
+    #define DEFAULT_Ki_LIST {  9.77,  1.31 }
+    #define DEFAULT_Kd_LIST { 203.2,  23.9 }
   #else
     // Testbox
     // -- CHC Pro

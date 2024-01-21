@@ -430,12 +430,9 @@
     //#define GRADIENT_VTOOL       // Add M166 T to use a V-tool index as a Gradient alias
   #endif
 
-  /**
-   * "Dual Zone Extruder"
-   *   - Not part of official Marlin. Affects Conditional_LCD.h.
-   *   - Used to define a mizing extruder that has a seperate combining and nozzle heatblock.
-   */
-  #define DUAL_ZONE_EXTRUDER
+  // Not part of official Marlin. Affects Conditional_LCD.h.
+  // Used to define a mixing extruder that has a separate combining and nozzle heatblock.
+  #define SEPARATE_MIX_HEATBLOCK
 
 #endif
 

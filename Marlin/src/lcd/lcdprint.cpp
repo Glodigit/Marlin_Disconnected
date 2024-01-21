@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
@@ -26,38 +26,115 @@
 
 #include "../inc/MarlinConfigPre.h"
 
-#if HAS_SPI_LCD
+#if HAS_LCDPRINT
 
+#include "marlinui.h"
 #include "lcdprint.h"
-#include "../core/language.h"
 
 /**
- * lcd_put_u8str_ind_P
- * Print a string with an index substituted within it
+ * expand_u8str_P
+ *
+ * Expand a string with optional substitutions:
+ *
+ *   $ displays the clipped string given by fstr or cstr
+ *   { displays  '0'....'10' for indexes 0 - 10
+ *   ~ displays  '1'....'11' for indexes 0 - 10
+ *   * displays 'E1'...'E11' for indexes 0 - 10 (By default. Uses LCD_FIRST_TOOL)
+ *   @ displays an axis name such as XYZUVW, or E for an extruder
+ *
+ * Return the number of characters emitted
  */
-lcd_uint_t lcd_put_u8str_ind_P(PGM_P const pstr, const uint8_t ind, const lcd_uint_t maxlen/*=LCD_WIDTH*/) {
-  uint8_t *p = (uint8_t*)pstr;
-  lcd_uint_t n = maxlen;
-  for (; n; n--) {
-    wchar_t ch;
-    p = get_utf8_value_cb(p, read_byte_rom, &ch);
-    if (!ch) break;
-    if (ch == '=' || ch == '~' || ch == '*') {
-      if (ch == '*') { lcd_put_wchar('E'); n--; }
-      // lcd_put_int(ind); n--; if (ind >= 10) n--;
-      // if (ind >= 0)
-        {
-          lcd_put_wchar(ind + ((ch == '=') ? '0' : LCD_FIRST_TOOL));
-          n--;
+lcd_uint_t expand_u8str_P(char * const outstr, PGM_P const ptpl, const int8_t ind, const char *cstr/*=nullptr*/, FSTR_P const fstr/*=nullptr*/, const lcd_uint_t maxlen/*=LCD_WIDTH*/) {
+  const uint8_t *p = (uint8_t*)ptpl;
+  char *o = outstr;
+  int8_t n = maxlen;
+  while (n > 0) {
+    lchar_t wc;
+    uint8_t *psc = (uint8_t *)p;
+    p = get_utf8_value_cb(p, read_byte_rom, wc);
+    if (!wc) break;
+    if (wc == '{' || wc == '~' || wc == '*') {
+      if (ind >= 0) {
+        if (wc == '*') { *o++ = 'E'; n--; }
+        if (n) {
+          int8_t inum = ind + ((wc == '{') ? 0 : LCD_FIRST_TOOL);
+          if (inum >= 10) {
+            *o++ = ('0' + (inum / 10)); n--;
+            inum %= 10;
+          }
+          if (n) { *o++ = '0' + inum; n--; }
         }
-      // else if (ind == -1) { PGM_P const b = GET_TEXT(MSG_BED); lcd_put_u8str_P(b); n -= utf8_strlen_P(b); }
-      // else if (ind == -2) { PGM_P const c = GET_TEXT(MSG_CHAMBER); lcd_put_u8str_P(c); n -= utf8_strlen_P(c); }
-      if (n) n -= lcd_put_u8str_max_P((PGM_P)p, n);
-      break;
+      }
+      else {
+        PGM_P const b = ind == -2 ? GET_TEXT(MSG_CHAMBER) : GET_TEXT(MSG_BED);
+        strlcpy_P(o, b, n + 1);
+        n -= utf8_strlen(o);
+        o += strlen(o);
+      }
+      if (n > 0) {
+        strlcpy_P(o, (PGM_P)p, n + 1);
+        n -= utf8_strlen(o);
+        o += strlen(o);
+        break;
+      }
     }
-    lcd_put_wchar(ch);
+    else if (wc == '$' && fstr) {
+      strlcpy_P(o, FTOP(fstr), n + 1);
+      n -= utf8_strlen(o);
+      o += strlen(o);
+    }
+    else if (wc == '$' && cstr) {
+      strlcpy(o, cstr, n + 1);
+      n -= utf8_strlen(o);
+      o += strlen(o);
+    }
+    else {
+      if (wc == '@')
+        *o++ = AXIS_CHAR(ind);
+      else
+        while (psc != p) *o++ = read_byte_rom(psc++);
+      *o = '\0';
+      n--;
+    }
   }
-  return n;
+  return maxlen - n;
 }
 
-#endif // HAS_SPI_LCD
+/**
+ * lcd_put_u8str_P
+ *
+ * Print a string with optional substitutions:
+ *
+ *   $ displays the clipped string given by fstr or cstr
+ *   { displays  '0'....'10' for indexes 0 - 10
+ *   ~ displays  '1'....'11' for indexes 0 - 10
+ *   * displays 'E1'...'E11' for indexes 0 - 10 (By default. Uses LCD_FIRST_TOOL)
+ *   @ displays an axis name such as XYZUVW, or E for an extruder
+ *
+ * Return the number of characters emitted
+ */
+lcd_uint_t lcd_put_u8str_P(PGM_P const ptpl, const int8_t ind, const char *cstr/*=nullptr*/, FSTR_P const fstr/*=nullptr*/, const lcd_uint_t maxlen/*=LCD_WIDTH*/) {
+  char estr[maxlen + 2];
+  const lcd_uint_t outlen = expand_u8str_P(estr, ptpl, ind, cstr, fstr, maxlen);
+  lcd_put_u8str_max(estr, maxlen * (MENU_FONT_WIDTH));
+  return outlen;
+}
+
+// Calculate UTF8 width with a simple check
+int calculateWidth(PGM_P const pstr) {
+  if (!USE_WIDE_GLYPH) return utf8_strlen_P(pstr) * MENU_FONT_WIDTH;
+  const uint8_t prop = 2;
+  const uint8_t *p = (uint8_t*)pstr;
+  int n = 0;
+
+  do {
+    lchar_t wc;
+    p = get_utf8_value_cb(p, read_byte_rom, wc);
+    if (!wc) break;
+    n += (wc > 255) ? prop : 1;
+  } while (1);
+
+  return n * MENU_FONT_WIDTH;
+}
+
+#endif // HAS_LCDPRINT

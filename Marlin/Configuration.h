@@ -966,6 +966,9 @@
   //#define DEFAULT_bedKd 305.4
 
   // CR600S [750W 220V]
+  //#define DEFAULT_bedKp 72.82
+  //#define DEFAULT_bedKi 8.31
+  //#define DEFAULT_bedKd 159.59
 
   // Flash [220V]
   //#define DEFAULT_bedKp 138.56
@@ -2941,8 +2944,8 @@
 // Note: Test audio output with the G-Code:
 //  M300 S<frequency Hz> P<duration ms>
 //
-#define LCD_FEEDBACK_FREQUENCY_DURATION_MS 20
-#define LCD_FEEDBACK_FREQUENCY_HZ 800
+#define LCD_FEEDBACK_FREQUENCY_DURATION_MS  20
+#define LCD_FEEDBACK_FREQUENCY_HZ           294         // D4 note
 
 //
 // Tone queue size, used to keep beeps from blocking execution.

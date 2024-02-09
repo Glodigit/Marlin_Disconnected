@@ -3110,10 +3110,10 @@
   #endif
 
   #if AXIS_IS_TMC_CONFIG(E0)
-    #define E0_CURRENT      600
+    #define E0_CURRENT     300
     #define E0_MICROSTEPS    8
-    #define E0_RSENSE         0.11
-    #define E0_CHAIN_POS     -1
+    #define E0_RSENSE        0.11
+    #define E0_CHAIN_POS    -1
     //#define E0_INTERPOLATE true
     //#define E0_HOLD_MULTIPLIER 0.5
   #endif

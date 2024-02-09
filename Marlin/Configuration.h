@@ -228,11 +228,17 @@
 #define E1_DRIVER_TYPE TMC2209
 #define E2_DRIVER_TYPE TMC2209
 #define E3_DRIVER_TYPE TMC2209
-//#define E4_DRIVER_TYPE A4988
-//#define E5_DRIVER_TYPE A4988
-//#define E6_DRIVER_TYPE A4988
-//#define E7_DRIVER_TYPE A4988
+#define E4_DRIVER_TYPE TMC2209
+#define E5_DRIVER_TYPE TMC2209
+#define E6_DRIVER_TYPE TMC2209
+#define E7_DRIVER_TYPE TMC2209
 
+#define BTT_MOTOR_EXPANSION
+#if ENABLED(BTT_MOTOR_EXPANSION)
+  // Not part of official Marlin. Affects pins_BTT_OCTOPUS_V1_common.h.
+  // Motor 0 - 7 on Octopus (Pro) boards become E0 - E7.
+  #define XYZ_ON_BTT_MOTOR_EXPANSION  
+#endif 
 
 /**
  * Additional Axis Settings
@@ -421,9 +427,9 @@
  */
 #define MIXING_EXTRUDER
 #if ENABLED(MIXING_EXTRUDER)
-  #define MIXING_STEPPERS 4        // Number of steppers in your mixing extruder
+  #define MIXING_STEPPERS 8        // Number of steppers in your mixing extruder
   #define MIXING_VIRTUAL_TOOLS 16  // Use the Virtual Tool method with M163 and M164
-  #define DIRECT_MIXING_IN_G1    // Allow ABCDHI mix factors in G1 movement commands
+  #define DIRECT_MIXING_IN_G1      // Allow ABCDHI mix factors in G1 movement commands
   //#define GRADIENT_MIX           // Support for gradient mixing with M166 and LCD
   //#define MIXING_PRESETS         // Assign 8 default V-tool presets for 2 or 3 MIXING_STEPPERS
   #if ENABLED(GRADIENT_MIX)

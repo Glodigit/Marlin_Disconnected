@@ -71,9 +71,6 @@
   #define MOTHERBOARD BOARD_BTT_OCTOPUS_PRO_V1_0
 #endif
 
-// Sensorless homing not used.
-#define DIAG_JUMPERS_REMOVED
-
 /**
  * Select the serial port on the board to use for communication with the host.
  * This allows the connection of wireless adapters (for instance) to non-default port pins.
@@ -233,6 +230,7 @@
 #define E6_DRIVER_TYPE TMC2209
 #define E7_DRIVER_TYPE TMC2209
 
+#define DIAG_JUMPERS_REMOVED // Sensorless homing not used.
 #define BTT_MOTOR_EXPANSION
 #if ENABLED(BTT_MOTOR_EXPANSION)
   // Not part of official Marlin. Affects pins_BTT_OCTOPUS_V1_common.h.
